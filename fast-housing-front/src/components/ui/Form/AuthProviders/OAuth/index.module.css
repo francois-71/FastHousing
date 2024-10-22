@@ -1,0 +1,23 @@
+.oAuthButton {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  width: 175px;
+}
+
+.authWrapperOAuth {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.oAuthTitle {
+  font-size: var(--normal-text-size);
+}

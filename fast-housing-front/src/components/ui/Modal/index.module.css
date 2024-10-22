@@ -1,0 +1,26 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modalContent {
+  background-color: white;
+  position: absolute;
+  width: 300px;
+  padding: 20px;
+  border-radius: var(--border-radius-modal);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    width: 80vw;
+  }
+}

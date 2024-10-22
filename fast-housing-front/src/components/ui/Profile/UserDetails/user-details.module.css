@@ -1,0 +1,25 @@
+
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userDetails li {
+  display: flex;
+  list-style-type: none;
+  margin: 10px;
+}
+
+.userDetails li:not(:last-child) {
+  border-bottom: solid 1px rgba(60, 60, 60, 0.3);
+}
+
+.userDetails li p {
+  width: 200px;
+}
+
+.details{
+    color: grey
+}

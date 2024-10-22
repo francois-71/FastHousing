@@ -1,0 +1,10 @@
+.amenity{
+    display: inline-block;
+    padding: 0 10px;
+    height: 40px; /* Example fixed height */
+    line-height: 40px; /* Same as the height for vertical centering */
+    border-radius: 10px;
+    text-align: center;
+    background-color: var(--amenity-background-color);
+    color: var(--amenity-color);
+}

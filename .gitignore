@@ -1,0 +1,35 @@
+.venv
+venv
+data
+path
+.husky
+.DS_Store
+
+# face detection service
+face-detection-service/path
+face-detection-service/.env
+
+# email service
+email-service/src/myenv
+email-service/src/get-pip.py
+email-service/.env
+__pycache__
+
+
+# fast housing front
+fast-housing-front/node_modules
+fast-housing-front/data
+fast-housing-front/.next/
+fast-housing-front/.storybook
+fast-housing-front/.swc/*
+fast-housing-front/.env
+fast-housing-front/commitlint.config.js
+fast-housing-front/.eslintrc.json
+/out/
+
+# production
+/build
+*.pem
+.env
+next-env.d.ts
+

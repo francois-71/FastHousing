@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DFHousing - Verify Your Email Address</title>
+    <style>
+      .emailVerificationContainer {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+      }
+      .emailVerificationButton {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 20px 0;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: orange;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .emailVerificationButton:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="emailVerificationContainer">
+      <h2>Hello, $last_name!</h2>
+      <p>
+        Thank you for registering with us. Please click the button below to
+        verify your email address:
+      </p>
+      <p>
+        <a href="$link" class="emailVerificationButton"
+          >Verify Email Address</a
+        >
+      </p>
+      <p>If you did not create an account, please ignore this email.</p>
+      <p>Best regards,</p>
+      <p>DFHousing</p>
+    </div>
+  </body>
+</html>

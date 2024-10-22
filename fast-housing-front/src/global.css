@@ -1,0 +1,33 @@
+body {
+  margin: 0 auto;
+  background-color: var(--app-background-color-cv) !important;
+}
+
+:root {
+  --app-background-color-cv: #0f172a;
+
+  --color-input-small-search-bar: #0f172a;
+
+  --color-submit-small-search-bar: orange;
+  --border-radius-input: 60px;
+  --border-radius-box: 5px;
+
+  --normal-text-size: 14px;
+  --small-text-size: 12px;
+  --large-text-size: 16px;
+  --x-large-text-size: 18px;
+  --xxl-text-size: 20px;
+  --xxxl-text-size: 22px;
+  --error-message-size: 40px;
+  --error-title-size: 60px;
+  --header-height: 75px;
+
+  --amenity-color: rgb(94 234 212);
+  --amenity-background-color: rgba(45, 212, 191, 0.2);
+
+  --error-text-color: rgb(255, 31, 31);
+  --error-background-color: #f2dede;
+
+  --success-text-color: rgb(0, 128, 0);
+  --success-background-color: #d4edda;
+}

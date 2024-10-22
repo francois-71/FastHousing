@@ -1,0 +1,32 @@
+version: "1"
+
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: francois
+      POSTGRES_PASSWORD: test1234
+      POSTGRES_DB: dfHousing
+      POSTGRES_PORT: 5432
+      POSTGRES_HOST: localhost
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  email-service:
+    build:
+      context: ./email-service/
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./email-service/.env
+  face-detection:
+    build:
+      context: ./face-detection-service/
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./face-detection-service/.env
+

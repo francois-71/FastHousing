@@ -1,0 +1,65 @@
+.smallSearchBarForm {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 60px;
+  padding: 4px 10px;
+  align-items: center;
+}
+
+.smallSearchBarOptionWrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.smallSearchBarOptionWrapper [type="text"] {
+  width: 300px;
+}
+
+.smallSearchBarOptionWrapper input:hover {
+  cursor: pointer;
+}
+
+.smallSearchBarGuestButton {
+  background-color: var(--color-input-small-search-bar);
+  color: white;
+  border: none;
+  text-align: center;
+  justify-content: center;
+  height: 35px;
+  border-radius: var(--border-radius-input);
+  width: 100px;
+}
+
+.smallSearchBarInput {
+  color: white;
+  background-color: var(--color-input-small-search-bar);
+  border: none;
+  text-align: center;
+  height: 35px;
+  border-radius: var(--border-radius-input);
+}
+
+.smallSearchBarInput::placeholder {
+  color: white;
+}
+
+.smallSearchBarSubmitButton {
+  display: flex;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--color-submit-small-search-bar);
+  padding: 25px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.smallSearchBarOptionWrapper label {
+  font-weight: bold;
+  font-size: var(--small-text-size);
+}

@@ -1,0 +1,152 @@
+/* index.module.css */
+
+.editPropertyFormContainer {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .editPropertyForm {
+    max-width: 600px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .editPropertyForm {
+      width: 100%;
+      border-radius: 0;
+    }
+  
+    .editPropertyFormContainer {
+      padding: 0;
+    }
+  }
+  
+  .editPropertyFormInput {
+    margin-bottom: 20px;
+  }
+  
+  .editPropertyFormInput label {
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .editPropertyFormInput input,
+  .editPropertyFormInput select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .editPropertyFormInput textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: vertical;
+  }
+  
+  .editPropertyFormInput input[type="file"] {
+    padding: 5px;
+  }
+  
+  .editPropertyFormInput p {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .customeFileUpload {
+    background-color: orange;
+    cursor: pointer;
+    padding: 10px;
+    color: white !important;
+    border-radius: 10px;
+  }
+  
+  .editPropertyFormAmenities {
+    padding: 10px 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between; /* Align items to the ends */
+    width: 100%;
+  }
+  .editPropertyFormAmenities:not(:first-child) {
+    border-top: rgba(146, 146, 146, 0.1) 1px solid;
+  }
+  
+  .amenityItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align items to the ends */
+    width: 100%;
+  }
+  
+  .amenityItem input {
+    width: 16px;
+    height: 30px;
+  }
+  
+  .amenityItem label {
+    margin-right: 10px; /* Adjust spacing between label and input */
+  }
+  
+  .editPropertyFormSubmitButton button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .editPropertyFormSubmitButton button:hover {
+    background-color: rgb(239, 156, 3);
+  }
+  
+  .editPropertyFormTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .editPropertyFormTitleContainer {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  
+  .navigateBackward {
+    margin-right: 8px;
+    background-color: orange;
+    color: white;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .editPropertyErrors {
+    background-color: var(--error-background-color);
+    color: var(--error-text-color);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  

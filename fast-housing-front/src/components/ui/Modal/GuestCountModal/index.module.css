@@ -1,0 +1,71 @@
+
+
+
+.guestCount {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.guestCountControls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100px;
+  align-items: center;
+}
+
+.guestCountTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2px;
+}
+
+.guestCountTitle h3 {
+  font-size: var(--medium-text-size);
+  font-weight: bold;
+}
+
+.guestCountTitle span {
+  font-size: var(--small-text-size);
+  font-weight: normal;
+}
+
+.guestCountControls button {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.guestCountControls button:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.guestCountControls button:active {
+  background-color: #e0e0e0;
+}
+
+.guestCountControls button:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.guestCountSave button {
+  background-color: #ff5a5f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
