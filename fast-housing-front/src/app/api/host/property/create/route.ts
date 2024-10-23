@@ -23,7 +23,7 @@ export async function POST(request: Request) {
   const action = await createProperty(response.data, session.user.id);
 
   if (!action.success) {
-    return NextResponse.json({ error: action.message }, { status: 500 });
+    return NextResponse.json({ error: action.message }, { status: 400 });
   }
 
   revalidatePath("/");

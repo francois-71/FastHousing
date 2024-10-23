@@ -6,6 +6,7 @@ import { imageConfig } from "@/config/image.config";
 import { compressMultipleImagesJpeg } from "@/lib/image-processing/compress";
 import { Image } from "@/types/model";
 import { sendFacesToDetection } from "@/lib/image-processing/face-detection/detect-face-image";
+import { FacesInImages } from "@/types/micro-services/face-detection-service/detect-faces-in-images-type";
 
 export async function getAllCoverImages(): Promise<Image[]> {
   try {
@@ -39,10 +40,11 @@ export async function revalidateImageUrl(image: Image): Promise<Image> {
             url: image.url,
           },
         });
-      } catch (error){
-        throw new Error("An error occured while trying to update imageUrl (revalidateImageUrl())");
+      } catch (error) {
+        throw new Error(
+          "An error occured while trying to update imageUrl (revalidateImageUrl())"
+        );
       }
-     
     }
   }
 
@@ -110,7 +112,9 @@ export async function getCoverImageByPropertyId(
 
 export async function compressMultipleImages(
   files: File[]
-): Promise<{ compressedImage: Buffer; ext: string; fileName?: string | undefined }[]> {
+): Promise<
+  { compressedImage: Buffer; ext: string; fileName?: string | undefined }[]
+> {
   const quality = imageConfig.imageCompressionQuality;
   try {
     const buffers = await Promise.all(
@@ -138,19 +142,30 @@ export async function compressMultipleImages(
   }
 }
 
-export async function containsFace(images: File[]): Promise<any> {
-  console.log("before detectFaces");
-  const response = await sendFacesToDetection({ files: images });
-  console.log("response1", response);
-  // parse the json to check face presence and update true or false
-
-  for (const key in response) {
-    if (response[key] > 0) {
-      return false;
-    }
+// This function takes the images as input and send them to the sendFacesToDetection functions.
+export async function containsFace(images: File[]): Promise<FacesInImages> {
+  if (!images || images.length === 0) {
+    throw new Error("No images provided");
   }
 
-  console.log("response2", response);
+  try {
+    const response: FacesInImages = await sendFacesToDetection({
+      files: images,
+    });
+    if (!response) {
+      throw new Error("No response from face detection API");
+    }
 
-  return response;
+    // filter images where faceCount is > 0 only
+    const imagesWithFaces: FacesInImages = Object.fromEntries(
+      Object.entries(response).filter(([, faceCount]) => faceCount > 0)
+    ); 
+
+    console.log(imagesWithFaces);
+
+    return imagesWithFaces;
+  } catch (error) {
+    console.error("Error during face detection:", error);
+    throw new Error("Failed to send data to Face Detection");
+  }
 }

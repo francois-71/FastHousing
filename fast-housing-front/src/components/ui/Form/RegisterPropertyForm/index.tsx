@@ -14,7 +14,6 @@ import {
 } from "@/schema/create-property";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import Form from 'next/form';
 
 export default function RegisterPropertyForm() {
   const {
@@ -33,17 +32,16 @@ export default function RegisterPropertyForm() {
     },
   });
 
-
   const [error, setError] = React.useState<string>("");
   const [fileCount, setFileCount] = React.useState<number>(0);
   const router = useRouter();
 
-
   useEffect(() => {
-    console.log("error", error);
+    console.log("errors", errors);
   });
 
   const onSubmit: SubmitHandler<CreatePropertyType> = async (data) => {
+    setError("");
     console.log("test");
     const formData = new FormData();
 
@@ -69,21 +67,24 @@ export default function RegisterPropertyForm() {
     }
 
     console.log("test", formData);
+    try {
+      const response = await fetch("/api/host/property/create", {
+        method: "POST",
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        const errorMessage = errorData?.error || "There was an error creating your property. Please try again later.";
+        setError(errorMessage);
+      }
 
-    const response = await fetch("/api/host/property/create", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (response.ok) {
-      console.log("Property created successfully");
-    } else {
-      console.error("Error creating property");
-      setError(
-        "There was an error creating your property. Please try again later."
-      );
+      return;
+    } catch (error){
+      setError("An unexpected error occured. Please try again later.")
     }
   };
+    
 
   const handleArrowClick = () => {
     router.back();
@@ -102,7 +103,7 @@ export default function RegisterPropertyForm() {
 
   return (
     <div className={styles.createPropertyFormContainer}>
-      <Form
+      <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.createPropertyForm}
       >
@@ -192,7 +193,7 @@ export default function RegisterPropertyForm() {
         </div>
         <div className={styles.createPropertyFormInput}>
           <label htmlFor="fileUpload" className={styles.customeFileUpload}>
-            Upload Images
+            Upload Images (5MB max. per images)
           </label>{" "}
           <input
             id="fileUpload" // Assign an ID to the input
@@ -241,7 +242,7 @@ export default function RegisterPropertyForm() {
             Submit
           </button>
         </div>
-      </Form>
+      </form>
     </div>
   );
 }
