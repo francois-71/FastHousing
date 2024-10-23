@@ -23,7 +23,7 @@ async function getProperties(): Promise<Property[]> {
     next: {
       revalidate,
     },
-    headers: headers(),
+    headers: await headers(),
   });
 
   if (!response.ok) {
