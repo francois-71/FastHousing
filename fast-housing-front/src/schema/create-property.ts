@@ -81,7 +81,7 @@ export const createPropertySchema = z.object({
   images: z
     .array(
       z.instanceof(File).superRefine((file, ctx) => {
-        const maxFileSize = 1 * 1024 * 1024; // 1MB
+        const maxFileSize = 5 * 1024 * 1024; // 5MB
         const allowedFileTypes = ["image/jpeg", "image/png", "image/jpg"];
         if (file.size > maxFileSize) {
           ctx.addIssue({
