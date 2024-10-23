@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import styles from "./index.module.css";
 import {
@@ -14,6 +14,7 @@ import {
 } from "@/schema/create-property";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import Form from 'next/form';
 
 export default function RegisterPropertyForm() {
   const {
@@ -32,11 +33,18 @@ export default function RegisterPropertyForm() {
     },
   });
 
+
   const [error, setError] = React.useState<string>("");
   const [fileCount, setFileCount] = React.useState<number>(0);
   const router = useRouter();
 
+
+  useEffect(() => {
+    console.log("error", error);
+  });
+
   const onSubmit: SubmitHandler<CreatePropertyType> = async (data) => {
+    console.log("test");
     const formData = new FormData();
 
     for (const field of Object.keys(data) as Array<keyof typeof data>) {
@@ -59,6 +67,8 @@ export default function RegisterPropertyForm() {
         }
       }
     }
+
+    console.log("test", formData);
 
     const response = await fetch("/api/host/property/create", {
       method: "POST",
@@ -92,7 +102,7 @@ export default function RegisterPropertyForm() {
 
   return (
     <div className={styles.createPropertyFormContainer}>
-      <form
+      <Form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.createPropertyForm}
       >
@@ -231,7 +241,7 @@ export default function RegisterPropertyForm() {
             Submit
           </button>
         </div>
-      </form>
+      </Form>
     </div>
   );
 }
