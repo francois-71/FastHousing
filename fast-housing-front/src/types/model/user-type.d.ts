@@ -4,4 +4,6 @@ type UserWithAccountDetails = Prisma.UserGetPayload<{
     include: { accounts: true};
 }>;
 
-export type { User, UserWithAccountDetails };
+type profileUser = Pick<User, 'firstName', 'lastName', 'email', 'role'>
+
+export type { User, UserWithAccountDetails, profileUser};
