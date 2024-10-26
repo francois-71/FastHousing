@@ -1,0 +1,8 @@
+.profileBoxes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 500px !important;
+    min-width: 200px;
+}

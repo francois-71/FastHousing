@@ -1,24 +1,21 @@
-"use client";
 import React from "react";
 import styles from "./profile-board.module.css";
-import { Session } from "next-auth";
 import UserDetails from "../UserDetails";
+import { auth } from "@/auth";
+import UserPictureDetails from "../UserPictureDetails";
 
-export type UserProps = {
-  sessionUser: NonNullable<Session["user"]>;
-};
+export default async function Profile() {
+  const session = await auth();
 
-export default function Profile({ session }: { session: any }) {
-  console.log(session);
-
-  console.log("session user", session.user);
+  if (!session) return null;
 
   return (
     <div className={styles.profileBoxes}>
+      <UserPictureDetails image={session.user.image ? session.user.image : undefined} />
       <UserDetails
         firstName={session.user.firstName}
         lastName={session.user.lastName}
-        email={session.user.email}
+        email={session.user.email ? session.user.email : undefined}
         role={session.user.role}
       />
     </div>

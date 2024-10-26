@@ -13,7 +13,7 @@ export default async function Page() {
   if (session) {
     return (
       <div>
-        <Profile session={session} />
+        <Profile />
       </div>
     );
   } else {

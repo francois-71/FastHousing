@@ -3,21 +3,23 @@
 .userDetails {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding: 10px 20px;
+  margin: 0;
 }
 
 .userDetails li {
   display: flex;
   list-style-type: none;
-  margin: 10px;
 }
-
+.userDetails li p{
+  margin: 10px 0;
+}
 .userDetails li:not(:last-child) {
   border-bottom: solid 1px rgba(60, 60, 60, 0.3);
 }
 
 .userDetails li p {
-  width: 200px;
+  min-width: 100px;
 }
 
 .details{
