@@ -1,0 +1,41 @@
+.profileBoxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+}
+
+.userPictureDetailsComponent {
+  width: 60%;
+  margin: 10px;
+}
+
+.userDetailsComponent {
+  width: 60%;
+  margin: 10px;
+}
+
+.propertyDetailsComponent {
+  width: 60%;
+  margin: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .userPictureDetailsComponent,
+  .userDetailsComponent,
+  .propertyDetailsComponent {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .userPictureDetailsComponent,
+  .userDetailsComponent,
+  .propertyDetailsComponent {
+    width: 100%;
+    margin: 0;
+  }
+
+  .userPictureDetailsComponent {
+    border-bottom: 1px solid var(--color-border-delimiter);
+  }
+}

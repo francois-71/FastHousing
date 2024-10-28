@@ -1,9 +1,11 @@
-import { User, Prisma } from '@prisma/client';
+import { User, Prisma } from "@prisma/client";
 
 type UserWithAccountDetails = Prisma.UserGetPayload<{
-    include: { accounts: true};
+  include: { accounts: true };
 }>;
 
-type profileUser = Pick<User, 'firstName', 'lastName', 'email', 'role'>
+type UserWithProfilePicture = Prisma.UserGetPayload<{
+  include: { image: true };
+}>;
 
-export type { User, UserWithAccountDetails, profileUser};
+export type { User, UserWithAccountDetails, ProfileUser };

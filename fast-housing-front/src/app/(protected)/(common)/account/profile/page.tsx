@@ -11,11 +11,7 @@ export default async function Page() {
   }
 
   if (session) {
-    return (
-      <div>
-        <Profile session={session} />
-      </div>
-    );
+    return <Profile />;
   } else {
     redirect("/");
   }
