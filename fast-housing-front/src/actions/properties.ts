@@ -12,6 +12,7 @@ import {
   getImageLinkFromS3,
   handleUploadS3,
 } from "@/lib/s3";
+import { FacesInImages } from "@/types/micro-services/face-detection-service/detect-faces-in-images-type";
 
 // make sure that the userId comes from the session when calling this method
 export async function fetchPropertyById(
@@ -168,12 +169,15 @@ export async function createProperty(
     // first we should check that the images doesn't contain any faces. We don't want to store images with faces for the properties.
     // Also, we compress the images after the face check because the detection is more accurate with the original images.
 
-    const imagesContainsFace = await containsFace(property.images);
+    const imagesContainsFace: FacesInImages = await containsFace(
+      property.images
+    );
 
     console.log("imagesContainsFace", imagesContainsFace);
 
-    if (!imagesContainsFace) {
-      return { success: false, message: "Faces have been detected" };
+    // Since we are not sending the information for each individual images, maybe it's not optimal to check for all object with a faceCount > 0. We could stop at the first object with a faceCount > 0
+    if (Object.entries(imagesContainsFace).length > 0) {
+      return { success: false, message: "Faces have been detected in one of your image(s)" };
     }
 
     const compressedImages = await compressMultipleImages(property.images);

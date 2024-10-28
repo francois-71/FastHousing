@@ -1,4 +1,5 @@
 import { faceDetectionServiceConfig } from "@/config/face-detection/face-detection-service-config";
+import { FacesInImages } from "@/types/micro-services/face-detection-service/detect-faces-in-images-type";
 
 /**
  * This function sends a File object to the face detection service to detect faces in the image.
@@ -7,7 +8,7 @@ import { faceDetectionServiceConfig } from "@/config/face-detection/face-detecti
  * @param {File[]} files
  */
 
-const sendFacesToDetection = async ({ files }: { files: File[] }): Promise<any> => {
+const sendFacesToDetection = async ({ files }: { files: File[] }): Promise<FacesInImages> => {
   const formData = new FormData();
   files.forEach((file: File) => {
     formData.append(`images`, file);
@@ -24,7 +25,7 @@ const sendFacesToDetection = async ({ files }: { files: File[] }): Promise<any> 
       }
     );
     // get the json response
-    const data = await response.json();
+    const data: FacesInImages = await response.json();
 
     if (!response.ok || response === undefined) {
       throw new Error("Error sending images to the face detection service");

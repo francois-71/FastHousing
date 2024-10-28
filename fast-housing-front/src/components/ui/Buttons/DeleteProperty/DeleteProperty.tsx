@@ -42,7 +42,7 @@ export default function DeletePropertyButton({
 
     if (success) {
       console.log("successfully deleted your property");
-      router.replace("/properties");
+      router.refresh();
     } else {
       console.log(
         `an error occured while trying to delete your property ${propertyId}`
