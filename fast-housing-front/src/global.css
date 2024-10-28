@@ -4,13 +4,21 @@ body {
 }
 
 :root {
+  --swiper-navigation-color: orange;
+  --swiper-pagination-color: orange;
   --app-background-color-cv: #0f172a;
 
   --color-input-small-search-bar: #0f172a;
+  --color-border-profile-picture: orange;
+  --color-border-delimiter: #0f127a;
 
   --color-submit-small-search-bar: orange;
+  --color-button: orange;
+  --color-button-hover: rgb(255, 176, 30);
+  --color-text-button: #0f172a;
   --border-radius-input: 60px;
   --border-radius-box: 5px;
+  --border-radius-button: 5px;
 
   --normal-text-size: 14px;
   --small-text-size: 12px;
@@ -24,6 +32,9 @@ body {
 
   --amenity-color: rgb(94 234 212);
   --amenity-background-color: rgba(45, 212, 191, 0.2);
+
+  --widget-color: white;
+  --widget-background-color: orange;
 
   --error-text-color: rgb(255, 31, 31);
   --error-background-color: #f2dede;

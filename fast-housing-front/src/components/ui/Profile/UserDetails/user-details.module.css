@@ -1,14 +1,11 @@
 
 
 .userDetails {
-  display: flex;
-  flex-direction: column;
   padding: 10px 20px;
   margin: 0;
 }
 
 .userDetails li {
-  display: flex;
   list-style-type: none;
 }
 .userDetails li p{

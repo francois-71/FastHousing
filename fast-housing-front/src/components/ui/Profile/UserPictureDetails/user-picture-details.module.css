@@ -1,16 +1,38 @@
 .profilePictureWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 
 .profilePicture {
-    display: block;
-    width: 40%;
-    height: auto;
-    margin: 0; /* Remove existing margin */
+  background-color: black;
+  border-radius: 100%;
+  border: 3px solid var(--color-border-profile-picture);
+  margin: 10px;
+  display: block;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
 
-.profilePictureWrapper {
+.formEditProfilePicture {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.editProfilePicture {
+  list-style: none;
+  color: inherit;
+  outline: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: var(--color-button);
+  color: var(--color-text-button);
+  padding: 5px;
+  border-radius: var(--border-radius-button);
+}
+
+.editProfilePicture:hover {
+  background-color: var(--color-button-hover);
 }

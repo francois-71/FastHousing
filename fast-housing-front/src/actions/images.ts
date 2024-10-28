@@ -8,11 +8,11 @@ import { Image } from "@/types/model";
 import { sendFacesToDetection } from "@/lib/image-processing/face-detection/detect-face-image";
 import { FacesInImages } from "@/types/micro-services/face-detection-service/detect-faces-in-images-type";
 
-export async function getAllCoverImages(): Promise<Image[]> {
+export async function getAllCoverImages(): Promise<Image[] | undefined> {
   try {
     const coverImages = await prisma.image.findMany({
       where: {
-        order: 1,
+        order: 0,
       },
     });
 
@@ -21,7 +21,56 @@ export async function getAllCoverImages(): Promise<Image[]> {
 
     return coverImages;
   } catch (error) {
+    console.error(error);
     throw new Error("Error in getAllCoverImages()");
+  }
+}
+
+// this function also return all cover images with its propertyName.
+export async function getAllCoverImagesByUser(
+  userId: string
+): Promise<(Image & { propertyName: string })[] | undefined> {
+  try {
+    // fetch cover images
+    const coverImages = await prisma.image.findMany({
+      where: {
+        order: 0,
+        property: {
+          userId,
+        },
+      },
+    });
+
+    await revalidateImageUrls(coverImages);
+
+    // fetch property names for the images
+    const propertyIds = coverImages.map((image) => image.propertyId); // Assuming each image has a propertyId
+    const properties = await prisma.property.findMany({
+      where: {
+        id: {
+          in: propertyIds,
+        },
+      },
+      select: {
+        id: true,
+        name: true,
+      },
+    });
+
+    // map images to add propertyName
+    const propertyMap = Object.fromEntries(
+      properties.map((property) => [property.id, property.name])
+    );
+
+    const updatedImages = coverImages.map((image) => ({
+      ...image,
+      propertyName: propertyMap[image.propertyId] || "",
+    }));
+
+    return updatedImages;
+  } catch (error) {
+    console.error(error);
+    throw new Error("An error occured in function getAllCoverImagesByUser");
   }
 }
 
@@ -159,7 +208,7 @@ export async function containsFace(images: File[]): Promise<FacesInImages> {
     // filter images where faceCount is > 0 only
     const imagesWithFaces: FacesInImages = Object.fromEntries(
       Object.entries(response).filter(([, faceCount]) => faceCount > 0)
-    ); 
+    );
 
     console.log(imagesWithFaces);
 
