@@ -57,6 +57,8 @@ export const {
       return true;
     },
     async session({ token, session }) {
+      console.log("token", token);
+      console.log("session", session);
       if (token.sub && session.user) {
         session.user.id = token.sub;
       }
@@ -67,6 +69,8 @@ export const {
 
       if (token.firstName && session.user) {
         session.user.firstName = token.firstName as string;
+      } else if (token.name && session.user){
+        session.user.firstName = token.name as string;
       }
 
       if (token.lastName && session.user) {

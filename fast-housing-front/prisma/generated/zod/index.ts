@@ -5410,11 +5410,6 @@ export const AccountCreateManyArgsSchema: z.ZodType<Prisma.AccountCreateManyArgs
   skipDuplicates: z.boolean().optional(),
 }).strict() ;
 
-export const AccountCreateManyAndReturnArgsSchema: z.ZodType<Prisma.AccountCreateManyAndReturnArgs> = z.object({
-  data: z.union([ AccountCreateManyInputSchema,AccountCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
 export const AccountDeleteArgsSchema: z.ZodType<Prisma.AccountDeleteArgs> = z.object({
   select: AccountSelectSchema.optional(),
   include: AccountIncludeSchema.optional(),
@@ -5452,11 +5447,6 @@ export const SessionUpsertArgsSchema: z.ZodType<Prisma.SessionUpsertArgs> = z.ob
 }).strict() ;
 
 export const SessionCreateManyArgsSchema: z.ZodType<Prisma.SessionCreateManyArgs> = z.object({
-  data: z.union([ SessionCreateManyInputSchema,SessionCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
-export const SessionCreateManyAndReturnArgsSchema: z.ZodType<Prisma.SessionCreateManyAndReturnArgs> = z.object({
   data: z.union([ SessionCreateManyInputSchema,SessionCreateManyInputSchema.array() ]),
   skipDuplicates: z.boolean().optional(),
 }).strict() ;
@@ -5502,11 +5492,6 @@ export const UserCreateManyArgsSchema: z.ZodType<Prisma.UserCreateManyArgs> = z.
   skipDuplicates: z.boolean().optional(),
 }).strict() ;
 
-export const UserCreateManyAndReturnArgsSchema: z.ZodType<Prisma.UserCreateManyAndReturnArgs> = z.object({
-  data: z.union([ UserCreateManyInputSchema,UserCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
 export const UserDeleteArgsSchema: z.ZodType<Prisma.UserDeleteArgs> = z.object({
   select: UserSelectSchema.optional(),
   include: UserIncludeSchema.optional(),
@@ -5542,11 +5527,6 @@ export const VerificationTokenUpsertArgsSchema: z.ZodType<Prisma.VerificationTok
 }).strict() ;
 
 export const VerificationTokenCreateManyArgsSchema: z.ZodType<Prisma.VerificationTokenCreateManyArgs> = z.object({
-  data: z.union([ VerificationTokenCreateManyInputSchema,VerificationTokenCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
-export const VerificationTokenCreateManyAndReturnArgsSchema: z.ZodType<Prisma.VerificationTokenCreateManyAndReturnArgs> = z.object({
   data: z.union([ VerificationTokenCreateManyInputSchema,VerificationTokenCreateManyInputSchema.array() ]),
   skipDuplicates: z.boolean().optional(),
 }).strict() ;
@@ -5588,11 +5568,6 @@ export const PasswordResetTokenCreateManyArgsSchema: z.ZodType<Prisma.PasswordRe
   skipDuplicates: z.boolean().optional(),
 }).strict() ;
 
-export const PasswordResetTokenCreateManyAndReturnArgsSchema: z.ZodType<Prisma.PasswordResetTokenCreateManyAndReturnArgs> = z.object({
-  data: z.union([ PasswordResetTokenCreateManyInputSchema,PasswordResetTokenCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
 export const PasswordResetTokenDeleteArgsSchema: z.ZodType<Prisma.PasswordResetTokenDeleteArgs> = z.object({
   select: PasswordResetTokenSelectSchema.optional(),
   where: PasswordResetTokenWhereUniqueInputSchema,
@@ -5628,11 +5603,6 @@ export const ImageUpsertArgsSchema: z.ZodType<Prisma.ImageUpsertArgs> = z.object
 }).strict() ;
 
 export const ImageCreateManyArgsSchema: z.ZodType<Prisma.ImageCreateManyArgs> = z.object({
-  data: z.union([ ImageCreateManyInputSchema,ImageCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
-export const ImageCreateManyAndReturnArgsSchema: z.ZodType<Prisma.ImageCreateManyAndReturnArgs> = z.object({
   data: z.union([ ImageCreateManyInputSchema,ImageCreateManyInputSchema.array() ]),
   skipDuplicates: z.boolean().optional(),
 }).strict() ;
@@ -5678,11 +5648,6 @@ export const PropertyCreateManyArgsSchema: z.ZodType<Prisma.PropertyCreateManyAr
   skipDuplicates: z.boolean().optional(),
 }).strict() ;
 
-export const PropertyCreateManyAndReturnArgsSchema: z.ZodType<Prisma.PropertyCreateManyAndReturnArgs> = z.object({
-  data: z.union([ PropertyCreateManyInputSchema,PropertyCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
 export const PropertyDeleteArgsSchema: z.ZodType<Prisma.PropertyDeleteArgs> = z.object({
   select: PropertySelectSchema.optional(),
   include: PropertyIncludeSchema.optional(),
@@ -5722,11 +5687,6 @@ export const CurrencyCreateManyArgsSchema: z.ZodType<Prisma.CurrencyCreateManyAr
   skipDuplicates: z.boolean().optional(),
 }).strict() ;
 
-export const CurrencyCreateManyAndReturnArgsSchema: z.ZodType<Prisma.CurrencyCreateManyAndReturnArgs> = z.object({
-  data: z.union([ CurrencyCreateManyInputSchema,CurrencyCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
 export const CurrencyDeleteArgsSchema: z.ZodType<Prisma.CurrencyDeleteArgs> = z.object({
   select: CurrencySelectSchema.optional(),
   where: CurrencyWhereUniqueInputSchema,
@@ -5762,11 +5722,6 @@ export const ReviewUpsertArgsSchema: z.ZodType<Prisma.ReviewUpsertArgs> = z.obje
 }).strict() ;
 
 export const ReviewCreateManyArgsSchema: z.ZodType<Prisma.ReviewCreateManyArgs> = z.object({
-  data: z.union([ ReviewCreateManyInputSchema,ReviewCreateManyInputSchema.array() ]),
-  skipDuplicates: z.boolean().optional(),
-}).strict() ;
-
-export const ReviewCreateManyAndReturnArgsSchema: z.ZodType<Prisma.ReviewCreateManyAndReturnArgs> = z.object({
   data: z.union([ ReviewCreateManyInputSchema,ReviewCreateManyInputSchema.array() ]),
   skipDuplicates: z.boolean().optional(),
 }).strict() ;

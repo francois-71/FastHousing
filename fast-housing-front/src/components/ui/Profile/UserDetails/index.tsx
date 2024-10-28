@@ -1,32 +1,43 @@
 import React from "react";
 import styles from "./user-details.module.css";
-import { RoleEnum } from "@prisma/client";
 import ProfileSquare from "../ProfileSquare";
+import { RoleEnum } from "@prisma/client";
 
-type UserDetails = {
-  firstName: string;
-  lastName: string;
+type UserDetailsProps = {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
   role: RoleEnum;
-  email: string;
 };
 
-export default function UserDetails(userDetails: UserDetails) {
+export default function UserDetails({
+  firstName,
+  lastName,
+  email,
+  role,
+}: UserDetailsProps) {
   return (
     <ProfileSquare>
       <ul className={styles.userDetails}>
+        {firstName && (
+          <li>
+            <p>First name:</p> <p className={styles.details}> {firstName} </p>
+          </li>
+        )}
+        {lastName && (
+          <li>
+            <p>Last name:</p> <p className={styles.details}>{lastName}</p>
+          </li>
+        )}
+        {email && (
+          <li>
+            <p>Email:</p> <p className={styles.details}>{email}</p>
+          </li>
+        )}
         <li>
-          <p>First name:</p> <p className={styles.details}> {userDetails.firstName} </p>
+          <p>Role:</p> <p className={styles.details}>{role}</p>
         </li>
-        <li>
-          <p>Last name:</p> <p className={styles.details}>{userDetails.lastName}</p>
-        </li>
-        <li>
-          <p>Email:</p> <p className={styles.details}>{userDetails.email}</p>
-        </li>
-        <li>
-          <p>Role:</p> <p className={styles.details}>{userDetails.role}</p>
-        </li>
-      </ul> 
-      </ProfileSquare >
+      </ul>
+    </ProfileSquare>
   );
 }
