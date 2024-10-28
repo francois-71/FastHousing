@@ -41,6 +41,28 @@ export async function fetchPropertyById(
     throw new Error("Error in fetchPropertyById()");
   }
 }
+/*
+export async function getPropertiesNames(
+  propertyIds: string[]
+): Promise<Record<string, string> | undefined> {
+
+  const propertyNames = await prisma.property.findMany({
+    where: {
+      id: {
+        in: propertyIds,
+      },
+    },
+    select: {
+      id: true,
+      name: true,
+    }
+  })
+
+  console.log(propertyNames)
+
+  return {"hello" "true"}
+}
+*/
 
 export async function fetchTwentyRandomProperties(): Promise<Property[]> {
   try {
@@ -177,7 +199,10 @@ export async function createProperty(
 
     // Since we are not sending the information for each individual images, maybe it's not optimal to check for all object with a faceCount > 0. We could stop at the first object with a faceCount > 0
     if (Object.entries(imagesContainsFace).length > 0) {
-      return { success: false, message: "Faces have been detected in one of your image(s)" };
+      return {
+        success: false,
+        message: "Faces have been detected in one of your image(s)",
+      };
     }
 
     const compressedImages = await compressMultipleImages(property.images);

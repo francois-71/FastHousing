@@ -13,7 +13,7 @@ export default async function Page() {
 
   if (!response.ok || response === undefined) {
     console.log("Didn't find any property");
-
+    
     return [];
   }
 
