@@ -33,3 +33,5 @@ fast-housing-front/.eslintrc.json
 .env
 next-env.d.ts
 
+node_modules
+

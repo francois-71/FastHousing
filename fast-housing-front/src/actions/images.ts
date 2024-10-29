@@ -57,8 +57,6 @@ export async function getAllCoverImagesByUser(
       },
     });
 
-    console.log("prop", properties);
-
     // map images to add propertyName
     const propertyMap = Object.fromEntries(
       properties.map((property) => [property.id, property.name])
