@@ -15,7 +15,6 @@ import { useState, useEffect, useRef } from "react";
 import { Session } from "next-auth";
 
 export default function Header({ session }: { session: Session | null }) {
-
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const menuRef = useRef<HTMLUListElement>(null);
@@ -47,7 +46,7 @@ export default function Header({ session }: { session: Session | null }) {
   }, [isMenuOpen]);
 
   // update session state when user logs out
-
+  console.log("session", session)
   useEffect(() => {
     if (!session) {
       closeMenu();
@@ -100,12 +99,12 @@ export default function Header({ session }: { session: Session | null }) {
             </li>
             <li className={styles.navItem} onClick={closeMenu}>
               <Link className={styles.navLink} href="/account/profile">
+                Hello, {session.user.firstName}
                 <img
                   src={session.user.image || "/DFRenting-logo.jpg"}
                   className={styles.avatar}
                   alt="Profile Picture"
                 />
-                Profile
               </Link>
             </li>
           </>

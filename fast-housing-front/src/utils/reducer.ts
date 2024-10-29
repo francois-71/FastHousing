@@ -1,5 +1,3 @@
-// utils.ts
-
 /**
  * Picks specified properties from an object and returns a new object with those properties.
  * @param obj The source object from which properties are to be picked.

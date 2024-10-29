@@ -101,6 +101,7 @@ export async function revalidateImageUrl(image: Image): Promise<Image> {
 }
 
 export async function revalidateImageUrls(images: Image[]): Promise<Image[]> {
+  console.log("REVALIDATING", images);
   return Promise.all(images.map((image) => revalidateImageUrl(image)));
 }
 
