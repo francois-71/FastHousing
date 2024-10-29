@@ -46,6 +46,11 @@ export default function AuthWrapper({ formType }: { formType: AuthFormEnum }) {
               <h3 className={styles.authWrapperTitle}>Sign in</h3>
             </div>
             <LoginCredential />
+            <div className={styles.authWrapperSeparatorContainer}>
+              <hr className={styles.authWrapperSeparator} />
+              <span className={styles.authWrapperSeparatorText}>or</span>
+            </div>
+            <OAuthButtons />
           </div>
         ) : formType === AuthFormEnum.REGISTER ? (
           <div className={styles.authWrapperCredentialsForm}>
@@ -60,6 +65,11 @@ export default function AuthWrapper({ formType }: { formType: AuthFormEnum }) {
               <h3 className={styles.authWrapperTitle}>Register</h3>
             </div>
             <RegisterCredential />
+            <div className={styles.authWrapperSeparatorContainer}>
+              <hr className={styles.authWrapperSeparator} />
+              <span className={styles.authWrapperSeparatorText}>or</span>
+            </div>
+            <OAuthButtons />
           </div>
         ) : formType === AuthFormEnum.RESET_PASSWORD ? (
           <div className={styles.authWrapperCredentialsForm}>
@@ -90,11 +100,6 @@ export default function AuthWrapper({ formType }: { formType: AuthFormEnum }) {
             <ForgotPasswordForm />
           </div>
         ) : null}
-        <div className={styles.authWrapperSeparatorContainer}>
-          <hr className={styles.authWrapperSeparator} />
-          <span className={styles.authWrapperSeparatorText}>or</span>
-        </div>
-        <OAuthButtons />
       </div>
     </div>
   );
