@@ -5,6 +5,11 @@
     "husky": "^9.1.6"
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "dev": "cd fast-housing-front && npm run dev",
+    "dc-up": "docker-compose up -d",
+    "dc-down": "docker-compose down",
+    "dc-build": "docker-compose build",
+    "dc-up-build": "docker-compose up -d --build"
   }
 }

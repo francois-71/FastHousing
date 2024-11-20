@@ -1,11 +1,12 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { PropertyWithImages, Image as ImageProps } from "@/types/model";
 
 type PropertyCardProps = {
-  coverImage: ImageProps | undefined;
+  coverImage?: ImageProps | undefined;
   property: Partial<PropertyWithImages>;
   imageQuality: number;
   children?: JSX.Element;
@@ -21,16 +22,33 @@ export default function PropertyCard({
   buttons,
   children,
 }: PropertyCardProps) {
+  const [imageFetched, isImageFetched] = useState<boolean>(false);
+  // fetch the image, if response != ok then set image to null even if the link is valid
+
+  useEffect(() => {
+    async function checkImage() {
+      if (coverImage) {
+        try {
+          const response = await fetch(coverImage.url, {
+            method: "GET",
+          });
+          if (!response.ok) {
+            isImageFetched(false);
+          }
+        } catch (e) {
+          console.log("error", e);
+        }
+      }
+    }
+    checkImage();
+  }, [imageFetched, coverImage]);
+
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardButtonWrapper}>
         {buttons &&
           buttons.map((button, index) => {
-            return (
-              <div key={index}>
-                {button}
-              </div>
-            );
+            return <div key={index}>{button}</div>;
           })}
       </div>
       <Link
@@ -46,7 +64,11 @@ export default function PropertyCard({
         <div className={styles.cardMain}>
           <Image
             className={styles.cardImg}
-            src={coverImage?.url || "/DFRenting-logo.jpg"}
+            src={
+              coverImage?.url && imageFetched
+                ? coverImage.url
+                : "/saintraph.jpeg"
+            }
             alt="Property Image"
             fill
             quality={imageQuality}
